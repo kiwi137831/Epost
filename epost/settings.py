@@ -83,9 +83,9 @@ WSGI_APPLICATION = 'epost.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'test',
+        'NAME': 'mydatabase',
         'USER':'root',
-        'PASSWORD':'fy8824392',
+        'PASSWORD':'root1234',
         'HOST':'127.0.0.1',
         'PORT':'3306',
     }
