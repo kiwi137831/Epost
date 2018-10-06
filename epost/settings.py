@@ -32,7 +32,6 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'account',
-    'admin',
     'courier',
     'customer',
     'django.contrib.admin',
@@ -83,7 +82,7 @@ WSGI_APPLICATION = 'epost.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'test',
+        'NAME': 'epost',
         'USER':'root',
         'PASSWORD':'fy8824392',
         'HOST':'127.0.0.1',
