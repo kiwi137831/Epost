@@ -2,7 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="17c10097-de5d-4c6d-b567-0e5f5c202f15" name="Default" comment="">
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/customer/templates/homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/customer/templates/homepage.html" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/customer/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/customer/templates/homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/customer/templates/homepage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/customer/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/customer/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/epost/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/epost/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/epost/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/epost/urls.py" afterDir="false" />
+>>>>>>> 9d0921644703da23ad2c19fcbe9ebf6b4f63f2fc
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -45,6 +60,7 @@
     </session>
   </component>
   <component name="FileEditorManager">
+<<<<<<< HEAD
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/courier/admin.py">
@@ -82,6 +98,14 @@
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
+=======
+    <leaf>
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/epost/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="342">
+              <caret line="84" column="22" selection-start-line="84" selection-start-column="22" selection-end-line="84" selection-end-column="22" />
+>>>>>>> 9d0921644703da23ad2c19fcbe9ebf6b4f63f2fc
             </state>
           </provider>
         </entry>
@@ -94,8 +118,13 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/customer/templates/homepage.html">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="195">
               <caret line="13" column="21" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
+=======
+            <state relative-caret-position="375">
+              <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+>>>>>>> 9d0921644703da23ad2c19fcbe9ebf6b4f63f2fc
             </state>
           </provider>
         </entry>
@@ -105,6 +134,7 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
+<<<<<<< HEAD
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/account/admin.py">
           <provider selected="true" editor-type-id="text-editor" />
@@ -112,6 +142,57 @@
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/account/migrations/__init__.py">
+=======
+      <file leaf-file-name="apps.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/customer/apps.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="20" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/customer/models.py">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/customer/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="35" selection-start-column="35" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/customer/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="54" selection-start-line="7" selection-start-column="54" selection-end-line="7" selection-end-column="54" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/epost/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="21" column="48" selection-start-line="21" selection-start-column="48" selection-end-line="21" selection-end-column="48" />
+              <folding>
+                <element signature="e#629#661#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/account/views.py">
+>>>>>>> 9d0921644703da23ad2c19fcbe9ebf6b4f63f2fc
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
@@ -132,11 +213,19 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/epost/__init__.py" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/epost/settings.py" />
         <option value="$PROJECT_DIR$/Login/apps.py" />
         <option value="$PROJECT_DIR$/account/templates/homepage.html" />
         <option value="$PROJECT_DIR$/account/urls.py" />
         <option value="$PROJECT_DIR$/customer/templates/homepage.html" />
+=======
+        <option value="$PROJECT_DIR$/customer/templates/homepage.html" />
+        <option value="$PROJECT_DIR$/epost/urls.py" />
+        <option value="$PROJECT_DIR$/customer/urls.py" />
+        <option value="$PROJECT_DIR$/epost/settings.py" />
+        <option value="$PROJECT_DIR$/customer/views.py" />
+>>>>>>> 9d0921644703da23ad2c19fcbe9ebf6b4f63f2fc
       </list>
     </option>
   </component>
@@ -168,6 +257,7 @@
               <item name="Epost" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
+<<<<<<< HEAD
               <item name="Epost" type="b2602c69:ProjectViewProjectNode" />
               <item name="Epost" type="462c0819:PsiDirectoryNode" />
               <item name="account" type="462c0819:PsiDirectoryNode" />
@@ -198,6 +288,15 @@
             <path>
               <item name="Epost" type="b2602c69:ProjectViewProjectNode" />
               <item name="Epost" type="462c0819:PsiDirectoryNode" />
+=======
+              <item name="epost" type="b2602c69:ProjectViewProjectNode" />
+              <item name="epost" type="462c0819:PsiDirectoryNode" />
+              <item name="account" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="epost" type="b2602c69:ProjectViewProjectNode" />
+              <item name="epost" type="462c0819:PsiDirectoryNode" />
+>>>>>>> 9d0921644703da23ad2c19fcbe9ebf6b4f63f2fc
               <item name="customer" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -274,12 +373,16 @@
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2532189" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+<<<<<<< HEAD
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.32891566" />
       <window_info anchor="bottom" id="Run" order="2" />
+=======
+      <window_info anchor="bottom" id="Terminal" visible="true" weight="0.32969698" />
+>>>>>>> 9d0921644703da23ad2c19fcbe9ebf6b4f63f2fc
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -304,6 +407,7 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/epost/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="302">
@@ -321,6 +425,9 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/courier/__init__.py">
+=======
+    <entry file="file://$PROJECT_DIR$/manage.py">
+>>>>>>> 9d0921644703da23ad2c19fcbe9ebf6b4f63f2fc
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/courier/models.py">
@@ -381,6 +488,7 @@
     <entry file="file://$PROJECT_DIR$/account/apps.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/account/migrations/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -418,6 +526,62 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="13" column="21" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
+=======
+    <entry file="file://$PROJECT_DIR$/customer/admin.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/customer/templates/homepage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/customer/apps.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="20" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/customer/models.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/epost/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="48" selection-start-line="21" selection-start-column="48" selection-end-line="21" selection-end-column="48" />
+          <folding>
+            <element signature="e#629#661#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/account/views.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/customer/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="54" selection-start-line="7" selection-start-column="54" selection-end-line="7" selection-end-column="54" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/epost/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="84" column="22" selection-start-line="84" selection-start-column="22" selection-end-line="84" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/customer/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="35" selection-start-column="35" selection-end-column="35" />
+>>>>>>> 9d0921644703da23ad2c19fcbe9ebf6b4f63f2fc
         </state>
       </provider>
     </entry>
