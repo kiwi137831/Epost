@@ -8,37 +8,41 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-    <title>Home Page</title>
+    <title>Pick UP</title>
   </head>
   <body>
 
 <div class="jumbotron" style="width:600px;height: 450px; margin: auto;">
 
-  <p class="lead">This is the homepage for customers.</p>
-  <hr class="my-4">
-    <div id="demo" style="text-align:center;" >
-     <input type="button" style="width:200px;height:40px; margin:5px" value="Pick Up" class="btn btn-outline-primary" onclick="{location.href='http://127.0.0.1:8000/customer/lists'}" >
-     <button type="button" style="width:200px;height:40px;margin:5px" class="btn btn-outline-primary">Express Service</button>
-     <button type="button" style="width:200px;height:40px;margin:5px" class="btn btn-outline-primary">Notice Board</button>
-     <button type="button" style="width:200px;height:40px;margin:5px" class="btn btn-outline-primary">Feedback</button>
-    </div>
-      <br>
-      <br>
-      <br>
-      <br>
+  <p class="lead">This is the your package lists.</p>
+
+    <hr class="my-4">
+
+
+  <p> Track id &emsp;&emsp;&emsp;  &emsp; Weight&emsp;&emsp;&emsp;&emsp; Status&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Box</p>
+
+    {% for item in pickuplist %}
+<div class="list" style="display: block">
+
+    <p class="info">{{ item.track_id }} &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{{ item.weight}}KG&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{{item.status}} &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{{ item.box_id}}
+
+        &emsp;&emsp;<a href="{% url 'successfulpage' item.order_id %}">pick up</a>
+    </p>
+
+    {{linebreaks }}
+    <hr>
+{% empty %}
+<p>There are no packages for you.</p>
+
+    {% endfor %}
+
+
+</div>
 
     <button style="float :right" class="btn btn-outline-info">Log out</button>
 
 
 </div>
-
-
-
-
-
-
-
-
 
 
 
