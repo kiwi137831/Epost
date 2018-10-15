@@ -1,7 +1,7 @@
 from django.contrib import admin
-from .models import notice
+from . import models
 
 # Register your models here.
-#class ArticleAdmin(admin.ModelAdmin):
-    #pass
-admin.site.register(notice)
+
+admin.site.register(models.notice)
+admin.site.register(models.user)
