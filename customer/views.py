@@ -14,17 +14,13 @@ def pickuplist (request):
     PickUpList = order.objects.filter(r_phone='0404').filter(status='wait')
 
 
-
-
     return render(request, 'PickUpList.html',{'pickuplist':PickUpList})
 
 
 
+def pickup( request, order_id=None):
 
-
-def pickup(request,orderid):
-
-    package = order.object.get(order_id=orderid)
+    package = order.objects.get(order_id=order_id)
     package.status = 'Picked Up'
     package.save()
 
@@ -32,7 +28,15 @@ def pickup(request,orderid):
 
 
 
-def pickup(request):
+def issuereport( request, order_id=None):
+
+
+
+    return render(request, 'IssueReport.html')
+
+
+
+def pickddddup(request):
     q_list = Question.published.all()
 
     paginator = Paginator(q_list, 4)
@@ -44,4 +48,4 @@ def pickup(request):
     except EmptyPage:
         questions = paginator.page(paginator.num_pages)
 
-    return render(request, 'subject/subject.html', {'questions': questions})
+    return render(request, 'subject.html', {'questions': questions})

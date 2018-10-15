@@ -8,40 +8,24 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-    <title>The list of Package</title>
+    <title>Report Issue</title>
   </head>
   <body>
 
 <div class="jumbotron" style="width:600px;height: 450px; margin: auto;">
 
-  <p class="lead">This is the your package lists.</p>
-
+  <p class="lead">Report Issue</p>
     <hr class="my-4">
+    <p class="info">Your package is in box {{package.box_id}}</p>
 
 
-  <p> Track id &emsp;&emsp;&emsp;  &emsp; Weight&emsp;&emsp;&emsp;&emsp; Status&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Box</p>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
 
-    {% for item in pickuplist %}
-<div class="list" style="display: block">
-
-    <p class="info">{{ item.track_id }} &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{{ item.weight}}KG&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{{item.status}} &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{{ item.box_id}}
-
-        &emsp;&emsp;
-        <a href="{% url 'customer:successfulpage' item.order_id %}">pick up</a>
-
-
-
-    </p>
-
-    {{linebreaks }}
-    <hr>
-{% empty %}
-<p>There are no packages for you.</p>
-
-    {% endfor %}
-
-
-</div>
 
     <button style="float :right" class="btn btn-outline-info">Log out</button>
 

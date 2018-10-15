@@ -15,12 +15,16 @@
 <div class="jumbotron" style="width:600px;height: 450px; margin: auto;">
 
   <p class="lead">Congritulation!</p>
-
     <hr class="my-4">
-
     <p class="info">Your package is in box {{package.box_id}}</p>
 
-    <a href="{% url 'successfulpage' item.order_id %}">Report Issue</a>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+    <a style=" position: absolute; left: 46%;" href="{% url 'customer:issuereport' package.order_id %}">Report Issue</a>
 
 
 
