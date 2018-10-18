@@ -1,11 +1,9 @@
 {% extends 'login/base.html' %}
 {% block title %}homepage{% endblock %}
 {% block content %}
-
     {% if request.session.is_login %}
-    <h1>hello！{{ request.session.user_name }}！welcome back！</h1>
+    <h1>hellow,{{ request.session.user_name }}！welcome back！</h1>
     {% else %}
-    <h1>you have not logged in ！</h1>
+    <h1>you have not logged in, and could not visit this page！</h1>
     {% endif %}
-
 {% endblock %}

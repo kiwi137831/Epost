@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import UserManager
+import win32timezone
 
 class notice(models.Model):
     STATUS_CHOICES = (
@@ -32,10 +33,18 @@ class user(models.Model):
     career = models.CharField(choices=type, max_length=32, default='customer', verbose_name='career')
     email = models.EmailField(unique=True, verbose_name='email')
     phone = models.CharField(max_length=10)
-    address =models.CharField(max_length=50)
+    address = models.CharField(max_length=50)
     gender = (('male','Male'),
               ('female','Female'))
     sex = models.CharField(choices=gender, max_length=32, default='man', verbose_name='gender')
     age = models.CharField(max_length=5)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+
+        verbose_name = 'user'
+        verbose_name_plural = 'user'
 
 

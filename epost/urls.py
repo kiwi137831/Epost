@@ -21,7 +21,6 @@ from django.conf.urls import include
 from account import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
     url(r'^customer/', include('customer.urls')),
     url(r'^account/',include('account.urls')),
     url(r'^admin/', admin.site.urls),
