@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>History Order</title>
+    <style>
+        #out{
+            border:1px solid #000000;
+            width: 500px;
+            overflow:auto;
+
+        }
+        div{
+            width:2600px;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div>
+        <form action="/customer/profile/" method="post">{% csrf_token %}
+         {% for order in orders %}
+         <text>date</text>
+         <input tpye="text" name = "date" value="{{order.date}}" readonly>
+         <text>weight</text>
+         <input tpye="text" name = "weight" value="{{order.weight}}" readonly>
+        <text>price</text>
+         <input tpye="text" name = "price" value="{{order.price}}" readonly>
+        <text>sender</text>
+         <input tpye="text" name = "sender" value="{{order.sender}}" readonly>
+        <text>sender phone</text>
+         <input tpye="text" name = "sender" value="{{order.s_phone}}" readonly>
+        <text>send address</text>
+         <input tpye="text" name = "s_address" value="{{order.s_address}}" readonly>
+        <text>send postcode</text>
+         <input tpye="text" name = "s_postcode" value="{{order.s_postcode}}" readonly>
+        <text>receiver</text>
+         <input tpye="text" name = "receiver" value="{{order.receiver}}" readonly>
+        <text>receiver phone</text>
+         <input tpye="text" name = "r_phone" value="{{order.r_phone}}" readonly>
+        <text>receiver address</text>
+         <input tpye="text" name = "r_address" value="{{order.r_address}}" readonly>
+        <text>receive postcode</text>
+         <input tpye="text" name = "r_postcode" value="{{order.r_postcode}}" readonly>
+        <!--这里应该有个判定，判定出是收件员还是发货员-->
+        <text>service staff</text>
+        <input tpye="text" name = "staff" value="{{order.delivery_staff}}" readonly>
+            <br>
+             {% endfor %}
+    </form>
+         <!--<input name="submit" type="submit" value ="submit"/>-->
+
+    </div>
+</div>
+</body>
+</html>

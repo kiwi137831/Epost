@@ -7,7 +7,9 @@
 <body>
     <form action="/customer/rate/" method="post">{% csrf_token %}
          <text>level</text>
-         <input type="text" name ="level"/>
+
+        <!--下拉框-->
+         <input type="text" name ="level" />
          <text> rate content</text>
          <input type="text" name ="ratecontent"/>
          <input name="submit" type="submit" value ="submit"/>

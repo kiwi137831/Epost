@@ -2,8 +2,11 @@ from __future__ import  unicode_literals
 
 from django.utils import timezone
 from django.shortcuts import render, render_to_response
+
+import account
+import customer
 from customer import models
-from account.models import user
+from account import models
 
 # Create your views here.
 
@@ -41,7 +44,7 @@ def profile(request):
         gender = request.POST.get("gender", None)
         age = request.POST.get("age", None)
             # 设置 order_id = 1
-        user = models.user.objects.create(
+        user = account.models.user.objects.create(
             user_id='1',
             account='1',
             password=password,
@@ -54,15 +57,16 @@ def profile(request):
             age = age)
         user.save()
         return render(request, "profile.html")
-        # 显示存了什么
-    return render(request, "profile.html")
+        # 显示存了什么   这里应该是依据id查找，不是select all
+    users = account.models.user.objects.all()
+    return render(request, "profile.html", {"users":users})
 
 def rate(request):
     if request.method == "POST":
         level = request.POST.get("level", None)
-        ratecontent = request.POST.get("content", None)
+        ratecontent = request.POST.get("ratecontent", None)
             # 设置 order_id = 1
-        user = models.user.objects.create(
+        user = models.rate.objects.create(
             rate_id='1',
             date=timezone.now(),
             level=level,
@@ -71,7 +75,16 @@ def rate(request):
             writer_id='1',
             delivery_id = '1',)
         user.save()
-        return render(request, "profile.html")
+        return render(request, "rate.html")
         # 显示存了什么
-    return render(request, "profile.html")
+    return render(request, "rate.html")
+
+
+def history(request):
+    if request.method == "POST":
+        #应该有个删除历史记录功能
+        return render(request, "history.html")
+        # 显示存了什么   这里应该是依据id查找，不是select all
+    orders = customer.models.order.objects.all()
+    return render(request, "history.html", {"orders":orders})
 
