@@ -25,7 +25,7 @@ SECRET_KEY = 'c=qqf@i=ccj79n%)7c8m+46@x3)0nmspkpcot2y^ogz9-u&lv3'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
 ]
 
 MIDDLEWARE = [
@@ -59,7 +60,9 @@ ROOT_URLCONF = 'epost.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+
+
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -86,7 +89,6 @@ DATABASES = {
         'USER':'root',
         'PASSWORD':'feng4080',
         'HOST':'127.0.0.1',
-        'PORT':'3306',
     }
 }
 
@@ -123,6 +125,8 @@ USE_L10N = True
 
 USE_TZ = True
 
+TIME_ZONE = 'America/Chicago'
+USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
