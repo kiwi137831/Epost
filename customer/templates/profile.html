@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+</head>
+<body>
+    <h1>Profile</h1>
+     <h1 class="display-4">Individual Information</h1>
+
+     <hr class="my-4">
+     <form action="/customer/profile/" method="post">{% csrf_token %}
+         <text>password</text>
+         <input type="text" name ="password"/>
+         <text>name</text>
+         <input type="text" name ="name"/>
+         <text>email</text>
+         <input type="text" name ="email"/>
+         <br/>
+         <text>phone</text>
+         <input type="text" name ="phone"/>
+         <text>address</text>
+         <input type="text" name ="address"/>
+         <text>gender</text>
+         <input type="text" name ="gender"/>
+         <text>age</text>
+         <input type="text" name ="age"/>
+         <input name="submit" type="submit" value ="submit"/>
+    </form>
+
+    <ul>{% block succeed %}
+       <p></p>
+    {% endblock %}
+    </ul>
+</body>
+</html>

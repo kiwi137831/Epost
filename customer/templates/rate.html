@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rate</title>
+</head>
+<body>
+    <form action="/customer/rate/" method="post">{% csrf_token %}
+         <text>level</text>
+         <input type="text" name ="level"/>
+         <text> rate content</text>
+         <input type="text" name ="ratecontent"/>
+         <input name="submit" type="submit" value ="submit"/>
+    </form>
+
+</body>
+</html>
