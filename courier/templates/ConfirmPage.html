@@ -8,46 +8,26 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-    <title>The list of Package</title>
+    <title>Confirmation</title>
   </head>
   <body>
 
 <div class="jumbotron" style="width:600px;height: 450px; margin: auto;">
 
-  <p class="lead">This is the your package lists.</p>
-
+  <p class="lead">Confirm Infomation</p>
     <hr class="my-4">
+    <p class="info">Please put {{confirmation.sender}}'s package in box {{confirmation.box_id}}</p>
+      <br>
+      <br>
+    <a style=" position: absolute; left: 46%;" href="{% url 'courier:issuereport' confirmation.order_id %}">Report Issue</a>
 
 
-  <p> Track id &emsp;&emsp;&emsp;  &emsp; Weight&emsp;&emsp;&emsp;&emsp; &emsp;Status&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Box</p>
-    {% for item in pickuplist %}
-<div class="list" style="display: block">
-
-    <p class="info">{{ item.track_id }} &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{{ item.weight}}KG&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{{item.status}} &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{{ item.box_id}}
-
-        &emsp;&emsp;
-        <a href="{% url 'courier:successfulpage' item.order_id %}">pick up</a>
-
-
-
-    </p>
-
-    {{linebreaks }}
-    <hr>
-{% empty %}
-<p>There are no packages for delivery .</p>
-
-    {% endfor %}
-
-    <input type="button" style="float :right" value="Back" class="btn btn-outline-info" onclick="{location.href='http://127.0.0.1:8000/courier/CourierHomepage'}" >
-   <button style="float :right" class="btn btn-outline-info">Log out</button>
+     <input type="button" style="float :right" value="Continue" class="btn btn-outline-info" onclick="{location.href='http://127.0.0.1:8000/courier/CourierStoreParcels'}" >
+    <input type="button" style="float :right" value="back" class="btn btn-outline-info" onclick="{location.href='http://127.0.0.1:8000/courier/CourierHompage'}" >
+    <button style="float :right" class="btn btn-outline-info">Log out</button>
 
 
 </div>
-
-</div>
-
-
 
 
 

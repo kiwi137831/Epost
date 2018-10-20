@@ -21,3 +21,10 @@ class order(models.Model):
     box_id = models.CharField(max_length=20)
     company_id = models.CharField(max_length=20)
     delivery_staff = models.CharField(max_length=20)
+
+class company(models.Model):
+    company_id = models.CharField(max_length=10, primary_key=True, default='0')
+    name = models.CharField(max_length=20)
+    phone = models.CharField(max_length=20)
+    price = models.CharField(max_length=20)
+    address = models.CharField(max_length=20)

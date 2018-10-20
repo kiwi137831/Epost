@@ -11,5 +11,6 @@ urlpatterns = [
     url(r'^CourierStoreParcels/$', views.storepage, name='CourierStoreParcels'),
     path('lists/successful/<str:order_id>/', views.pickup, name ='successfulpage'),
     path('/issuereport/<str:order_id>/', views.issuereport, name='issuereport'),
-    url(r'CourierStoreParcels/storelist', views.storelist, name="storelist")
+    url(r'CourierStoreParcels/storeinfo', views.storeinfo, name="storeinfo"),
+    path('/confirm/<str:order_id>/', views.confirmparcel, name ='confirmpage'),
 ]

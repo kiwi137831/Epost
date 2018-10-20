@@ -14,12 +14,13 @@
 
 <div class="jumbotron" style="width:600px;height: 450px; margin: auto;">
   <p class="lead">Parcels Detail Infomation</p>
-    {% for info in storelist %}
     <div class="list" style="display: block">
-    <p class="info">{{ info.track_id }} &emsp;&emsp;&emsp;&emsp;&emsp;{{ info.weight}}KG&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{{info.status}} &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{{ info.box_id}}
+    <p> Sender &emsp;&emsp;&emsp;  &emsp; Receiver&emsp;&emsp;&emsp;&emsp; Sender_Phone&emsp;&emsp;&emsp;&emsp;Receiver_Phone</p>
+    <p class="info">{{ storeinfo.sender }}&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{{ storeinfo.receiver}}&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; {{storeinfo.s_phone}}&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{{ storeinfo.r_phone}}
+    <p class="info">Sender address :{{storeinfo.s_address}}</p>
+    <p class="info">Receiver address :{{storeinfo.r_address}}</p>
 
-        &emsp;&emsp;
-
+        <a href="{% url 'courier:confirmpage' storeinfo.order_id %}">Confirm</a>
 
      <input type="button" style="float :right" value="Back" class="btn btn-outline-info" onclick="{location.href='http://127.0.0.1:8000/courier/CourierStoreParcels'}" >
     <button style="float :right" class="btn btn-outline-info">Log out</button>

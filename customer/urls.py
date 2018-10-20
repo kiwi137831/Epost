@@ -1,9 +1,10 @@
 from django.conf.urls import url, include
 
 from customer import views
-import  customer
+import customer
 
 urlpatterns = [
 
-    url(r'^homepage/$', views.homepage, name='homepage'),
+    url(r'^CourierHomepage/$', views.homepage, name='CourierHomepage'),
+
 ]

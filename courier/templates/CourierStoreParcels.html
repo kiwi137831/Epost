@@ -13,13 +13,11 @@
   <body>
 
 <div class="jumbotron" style="width:600px;height: 450px; margin: auto;">
-    <form class="form " action="storelist" method="post">
+    <form class="form " action="storeinfo" method="post">
         {% csrf_token %}
         <p class="lead">Parcels Detail Infomation</p>
         <label class="">Track ID:</label> <label style="color: red;">*</label>
             <input type="trackid" name="parcels_trackid" class="form-control" placeholder="Trackid" required>
-        <label class="">Receiver Phone number:</label> <label style="color: red;">*</label>
-            <input type="r_phone" name="receiver_phone" class="form-control" placeholder="Receiver Phone number" required>
         <br>
         <br>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Confirm</button>

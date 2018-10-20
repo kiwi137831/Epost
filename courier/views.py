@@ -33,11 +33,15 @@ def storepage( request):
     return render_to_response('CourierStoreParcels.html')
 
 @csrf_exempt
-def storelist (request):
+def storeinfo (request):
     if request.POST:
-        receiver_phone = request.POST.get("receiver_phone")
         parcels_trackid = request.POST.get("parcels_trackid")
-        print(receiver_phone)
-        print(parcels_trackid)
-        StoreList = order.objects.filter(r_phone="0404", track_id="1")
-        return render(request, 'CourierStorelist.html', {'storelist': StoreList})
+        storeinfo = order.objects.get(track_id=parcels_trackid)
+        return render(request, 'CourierStoreInfo.html', {'storeinfo': storeinfo})
+
+def confirmparcel( request, order_id=None):
+
+    confirmation = order.objects.get(order_id=order_id)
+    confirmation.status = 'wait'
+    confirmation.save()
+    return render(request, 'ConfirmPage.html', {'confirmation': confirmation})
