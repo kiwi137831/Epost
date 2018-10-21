@@ -24,11 +24,11 @@
       <br>
       <br>
       <br>
-    <a style=" position: absolute; left: 46%;" href="{% url 'customer:issuereport' package.order_id %}">Report Issue</a>
+    <a style=" position: absolute; left: 46%;" href="{% url 'customer:issuereport' user_id=user.user_id order_id=package.order_id %}">Report Issue</a>
 
 
 
-    <button style="float :right" class="btn btn-outline-info">Log out</button>
+    <button style="float :right" class="btn btn-outline-info" onclick="{location.href='http://127.0.0.1:8000/customer/{{user.user_id}}/homepage'}" >Return</button>
 
 
 </div>

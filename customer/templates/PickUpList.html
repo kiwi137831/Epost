@@ -27,7 +27,7 @@
     <p class="info">{{ item.track_id }} &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{{ item.weight}}KG&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{{item.status}} &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{{ item.box_id}}
 
         &emsp;&emsp;
-        <a href="{% url 'customer:successfulpage' item.order_id %}">pick up</a>
+        <a href="{% url 'customer:successfulpage' user_id=user.user_id order_id=item.order_id %}">pick up</a>
 
 
 
@@ -41,9 +41,11 @@
     {% endfor %}
 
 
+    <button style="float :right" class="btn btn-outline-info" onclick="{location.href='http://127.0.0.1:8000/customer/{{user.user_id}}/homepage'}" >Return</button>
+
 </div>
 
-    <button style="float :right" class="btn btn-outline-info">Log out</button>
+
 
 
 </div>

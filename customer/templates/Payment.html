@@ -8,19 +8,28 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-    <title>Report Issue</title>
+    <title>Payment</title>
   </head>
   <body>
 
 <div class="jumbotron" style="width:600px;height: 450px; margin: auto;">
 
-  <p class="lead">Report Issue</p>
-<form action="/customer/{{user.user_id}}/issuereport/{{order_id}}/" method="post">
-    {% csrf_token %}
-    {{ issueform.as_p }}
-    <input type="submit" value="Submit">
-</form>
+  <p class="lead">This your new Order</p>
+        <hr class="my-4">
 
+
+   <p class="info">Your Tracking ID is: {{track_id}} &emsp;&emsp;</p>
+
+    <p class="info">Price : {{price}}  </p>
+
+
+ <button style="float:left" class="btn-outline-primary" onclick="{location.href='http://127.0.0.1:8000/customer/{{user.user_id}}/homepage'}" >Return</button>
+
+
+<br>
+    <br>
+    <br>
+    <br>
 
 
     <button style="float :right" class="btn btn-outline-info" onclick="{location.href='http://127.0.0.1:8000/customer/{{user.user_id}}/homepage'}" >Return</button>

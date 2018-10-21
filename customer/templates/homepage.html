@@ -17,9 +17,9 @@
   <p class="lead">This is the homepage for customers.</p>
   <hr class="my-4">
     <div id="demo" style="text-align:center;" >
-     <input type="button" style="width:200px;height:40px; margin:5px" value="Pick Up" class="btn btn-outline-primary" onclick="{location.href='http://127.0.0.1:8000/customer/lists'}" >
-     <button type="button" style="width:200px;height:40px;margin:5px" class="btn btn-outline-primary">Express Service</button>
-     <button type="button" style="width:200px;height:40px;margin:5px" class="btn btn-outline-primary">Notice Board</button>
+     <input type="button" style="width:200px;height:40px; margin:5px" value="Pick Up" class="btn btn-outline-primary" onclick="{location.href='http://127.0.0.1:8000/customer/{{user.user_id}}/lists'}" >
+     <button type="button" style="width:200px;height:40px;margin:5px" class="btn btn-outline-primary" onclick="{location.href='http://127.0.0.1:8000/customer/{{user.user_id}}/express/'}" >Express Service</button>
+     <button type="button" style="width:200px;height:40px;margin:5px" class="btn btn-outline-primary" onclick="{location.href='http://127.0.0.1:8000/customer/{{user.user_id}}/noticeboard/'}" >Notice Board</button>
      <button type="button" style="width:200px;height:40px;margin:5px" class="btn btn-outline-primary">Feedback</button>
     </div>
       <br>

@@ -6,7 +6,8 @@ import django.utils.timezone as timezone
 
 
 class order(models.Model):
-    order_id = models.CharField(max_length = 10, primary_key= True, default= '0')
+   # models.IntegerField
+    order_id = models.CharField(max_length = 10, primary_key= True, default= '1')
     date = models.DateTimeField(default = timezone.now)
     track_id = models.CharField(max_length=20)
     r_address = models.CharField(max_length=50)
@@ -25,3 +26,14 @@ class order(models.Model):
     company_id = models.CharField(max_length=20)
     delivery_staff = models.CharField(max_length=20)
 
+
+
+
+class issue (models.Model):
+    issue_id = models.CharField(max_length = 10, primary_key= True, default= '1')
+    order_id = models.CharField(max_length=20, default= '0')
+    title = models.CharField(max_length=20)
+    content = models.CharField(max_length=200)
+    date = models.DateTimeField(default = timezone.now)
+    user_id = models.ForeignKey(user, to_field='user_id', on_delete=models.CASCADE)
+    status = models.CharField(max_length=20, default= 'wait')

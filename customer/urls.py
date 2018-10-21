@@ -5,9 +5,11 @@ import  customer
 app_name = 'customer'
 urlpatterns = [
 
-    url(r'^homepage/$', views.homepage, name='homepage'),
-    url(r'^lists/$', views.pickuplist, name='PickUpList'),
+    path('<str:user_id>/homepage/', views.homepage, name='homepage'),
+    path('<str:user_id>/lists/', views.pickuplist, name='PickUpList'),
   #  url(r'^lists/successful/(?P<order>\d+)$', views.pickup, name='successfulpage'),
-    path('/issuereport/<str:order_id>/', views.issuereport, name='issuereport'),
-    path('lists/successful/<str:order_id>/', views.pickup, name ='successfulpage'),
+    path('<str:user_id>/issuereport/<str:order_id>/', views.issuereport, name='issuereport'),
+    path('<str:user_id>/lists/successful/<str:order_id>/', views.pickup, name ='successfulpage'),
+    path('<str:user_id>/noticeboard/', views.notice, name ='notice'),
+    path('<str:user_id>/express/', views.send, name='express'),
 ]

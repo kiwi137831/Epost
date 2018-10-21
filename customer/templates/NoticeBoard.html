@@ -8,20 +8,39 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-    <title>Report Issue</title>
+    <title>Notice Board</title>
   </head>
   <body>
 
 <div class="jumbotron" style="width:600px;height: 450px; margin: auto;">
 
-  <p class="lead">Report Issue</p>
-<form action="/customer/{{user.user_id}}/issuereport/{{order_id}}/" method="post">
-    {% csrf_token %}
-    {{ issueform.as_p }}
-    <input type="submit" value="Submit">
-</form>
+  <p class="lead">This is the NoticeBoard.</p>
+
+    <hr class="my-4">
 
 
+  <p> Title &emsp;&emsp;&emsp;  &emsp; content &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Time</p>
+
+    {% for item in noticeboard %}
+<div class="list" style="display: block">
+
+    <p class="info">{{ item.title }} &emsp;&emsp;&emsp;&emsp;{{item.content}} &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{{ item.publish}}
+
+        &emsp;&emsp;
+
+
+
+    </p>
+
+    {{linebreaks }}
+    <hr>
+{% empty %}
+<p>There are no packages for you.</p>
+
+    {% endfor %}
+
+
+</div>
 
     <button style="float :right" class="btn btn-outline-info" onclick="{location.href='http://127.0.0.1:8000/customer/{{user.user_id}}/homepage'}" >Return</button>
 
