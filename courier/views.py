@@ -27,7 +27,11 @@ def pickup( request, order_id=None):
 
 def issuereport( request, order_id=None):
 
-    return render(request, 'IssueReport.html')
+    issue = order.objects.get(order_id=order_id)
+    issue.status = "issue"
+    issue.save()
+
+    return render(request, 'IssueReport.html',{'issue': issue})
 
 def storepage( request):
     return render_to_response('CourierStoreParcels.html')
