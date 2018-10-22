@@ -24,7 +24,7 @@
     {% for item in pickuplist %}
 <div class="list" style="display: block">
 
-    <p class="info">{{ item.track_id }} &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{{ item.weight}}KG&emsp;&emsp;&emsp;&emsp;&emsp;{{item.status}} &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{{ item.box_id}}
+    <p class="info">{{ item.track_id }} &emsp;&emsp;&emsp;&emsp;{{ item.weight}}KG&emsp;&emsp;&emsp;&emsp;&emsp;{{item.status}} &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{{ item.box_id}}
 
         &emsp;&emsp;
         <a href="{% url 'customer:successful' user_id=user.user_id order_id=item.order_id %}">pick up</a>

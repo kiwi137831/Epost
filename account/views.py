@@ -3,16 +3,13 @@ from django.shortcuts import redirect
 from . import models
 from . import forms
 
-
-def homepage(request):
+def index(request):
     pass
     return render(request, 'login/homepage.html')
 
-def index(request, user_id, career):
+def homepage(request, user_id):
     USER = models.user.objects.get(user_id=user_id)
-    Career = models.user.objects.get(career=career)
-    return render(request, 'homepage.html',{'user': USER,'Career': Career})
-
+    return render(request, 'homepage.html',{'USER', USER})
 
 def login(request):
     if request.session.get('is_login', None):
@@ -21,11 +18,13 @@ def login(request):
         login_form = forms.UserForm(request.POST)
         message = 'you should fill in all content'
         if login_form.is_valid():
-            username = login_form.cleaned_data.get('username')
+            account = login_form.cleaned_data.get('account')
+            name = login_form.cleaned_data.get('name')
             password = login_form.cleaned_data.get('password')
+            user_id = login_form.cleaned_data.get('user_id')
             # ....
             try:
-                user = models.user.objects.get(name=username)
+                user = models.user.objects.get(name=name)
             except:
                 message = 'User does not exist!'
                 return render(request, 'login/login.html', locals())
@@ -34,11 +33,10 @@ def login(request):
                 request.session['is_login'] = True
                 request.session['user_id'] = user.user_id
                 request.session['user_name'] = user.name
-                request.session['CAREER'] = user.career
-                if user.career == 'customer':
-                    return redirect(user.career + user.user_id + '/homepage/')
+                if user.type == 'customer':
+                    return redirect('/customer/' + user.user_id + '/homepage/')
                 else:
-                    return redirect(user.career + user.user_id + '/homepage/')
+                    return redirect('/courier/' + user.user_id + '/homepage/')
             else:
                 message = 'wrong password'
                 return render(request, 'login/login.html', locals())
@@ -57,23 +55,33 @@ def register(request):
         register_form = forms.RegisterForm(request.POST)
         message = 'check the information!'
         if register_form.is_valid():
-            username = register_form.cleaned_data['username']
+            account = register_form.cleaned_data['account']
+            name = register_form.cleaned_data['name']
             password1 = register_form.cleaned_data['password1']
             password2 = register_form.cleaned_data['password2']
             email = register_form.cleaned_data['email']
-            sex = register_form.cleaned_data['sex']
+            phone = register_form.cleaned_data['phone']
+            address = register_form.cleaned_data['address']
+            gender = register_form.cleaned_data['gender']
+            age = register_form.cleaned_data['age']
+            type = register_form.cleaned_data['type']
             if password1 != password2:
                 message = 'The second time you enter your password is different！'
                 return render(request, 'login/register.html', locals())
             else:
-                same_name_user = models.user.objects.filter(name=username)
+                same_name_user = models.user.objects.filter(account=account)
                 if same_name_user:
-                    message = 'The username has already been registered.Please try again！'
+                    message = 'The account has already been registered.Please try again！'
                     return render(request, 'login/register.html', locals())
-                same_email_user = models.user.objects.filter(email=email)
-                if same_email_user:
-                    message = 'The email address has already been registered. Please use another email address！'
-                    return render(request, 'login/register.html', locals())
+
+                models.user.objects.create(account=account, name=name,
+                                           password=password1, email=email,
+                                           phone=phone, gender=gender,
+                                           address=address,
+                                           age=age, type=type)
+
+
+                return redirect('/login/')  # 自动跳转到登录页面
     register_form = forms.RegisterForm()
     return render(request, 'login/register.html', locals())
 

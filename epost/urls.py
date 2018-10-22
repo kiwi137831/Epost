@@ -26,6 +26,7 @@ urlpatterns = [
     url(r'^login/', views.login),
     url(r'^register/', views.register),
     url(r'^logout/', views.logout),
-    url(r'^homepage/', views.homepage),
+    url(r'^homepage/', views.index),
+
     #path('<str:career>/<str:user_id>/homepage/', views.index, name='index'),
 ]

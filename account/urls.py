@@ -6,5 +6,5 @@ from django.conf.urls import url
 
 urlpatterns = [
     # post views
-    path('<str:career>/<str:user_id>/homepage/', views.index, name='index'),
+   # path('<str:career>/<str:user_id>/homepage/', views.index, name='index'),
 ]

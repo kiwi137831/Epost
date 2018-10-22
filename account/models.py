@@ -11,10 +11,10 @@ class user(models.Model):
     name = models.CharField(max_length=10)
     email = models.CharField(max_length=20)
     phone = models.CharField(max_length=50)
-    address =models.CharField(max_length=50)
+    address = models.CharField(max_length=50)
     age = models.CharField(max_length=5)
     type = models.CharField(max_length=10,default= '0')
-    gender = models.CharField(max_length=5,default= '0')
+    gender = models.CharField(max_length=10,default= '0')
 
 class courier(models.Model):
     courier_id = models.CharField(max_length = 10, primary_key= True, default= '1')
