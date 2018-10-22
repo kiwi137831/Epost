@@ -9,7 +9,7 @@ urlpatterns = [
     path('<str:user_id>/lists/', views.pickuplist, name='PickUpList'),
   #  url(r'^lists/successful/(?P<order>\d+)$', views.pickup, name='successfulpage'),
     path('<str:user_id>/issuereport/<str:order_id>/', views.issuereport, name='issuereport'),
-    path('<str:user_id>/lists/successful/<str:order_id>/', views.pickup, name ='successfulpage'),
+    path('<str:user_id>/lists/successful/<str:order_id>/', views.pickup, name ='successful'),
     path('<str:user_id>/noticeboard/', views.notice, name ='notice'),
     path('<str:user_id>/express/', views.send, name='express'),
 ]

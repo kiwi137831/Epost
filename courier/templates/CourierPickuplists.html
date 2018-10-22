@@ -19,15 +19,14 @@
     <hr class="my-4">
 
 
-  <p> Track id &emsp;&emsp;&emsp;  &emsp; Weight&emsp;&emsp;&emsp;&emsp; Status&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Box</p>
-
+  <p> Track id &emsp;&emsp;&emsp;  &emsp; Weight&emsp;&emsp;&emsp;&emsp; &emsp;Status&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Box</p>
     {% for item in pickuplist %}
 <div class="list" style="display: block">
 
-    <p class="info">{{ item.track_id }} &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{{ item.weight}}KG&emsp;&emsp;&emsp;&emsp;&emsp;{{item.status}} &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{{ item.box_id}}
+    <p class="info">{{ item.track_id }} &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{{ item.weight}}KG&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{{item.status}} &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{{ item.box_id}}
 
         &emsp;&emsp;
-        <a href="{% url 'customer:successful' user_id=user.user_id order_id=item.order_id %}">pick up</a>
+        <a href="{% url 'courier:successfulpage'  courier_id=courier.courier_id order_id=item.order_id %}">pick up</a>
 
 
 
@@ -36,19 +35,19 @@
     {{linebreaks }}
     <hr>
 {% empty %}
-<p>There are no packages for you.</p>
+<p>There are no packages for delivery .</p>
 
     {% endfor %}
 
+    <input type="button" style="float :right" value="Back" class="btn btn-outline-info" onclick="{location.href='http://127.0.0.1:8000/courier/{{courier.courier_id}}/CourierHomepage'}" >
+   <button style="float :right" class="btn btn-outline-info">Log out</button>
 
-    <button style="float :right" class="btn btn-outline-info" onclick="{location.href='http://127.0.0.1:8000/customer/{{user.user_id}}/homepage'}" >Return</button>
+
+</div>
 
 </div>
 
 
-
-
-</div>
 
 
 

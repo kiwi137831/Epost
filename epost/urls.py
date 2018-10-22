@@ -16,9 +16,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url, include
+from account import views
 from customer.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^customer/', include('customer.urls')),
-
+    url(r'^courier/', include('courier.urls')),
+  #  url(r'^admin/', admin.site.urls),
+    url(r'^login/', views.login),
+    url(r'^register/', views.register),
+    url(r'^logout/', views.logout),
+    url(r'^homepage/', views.homepage),
+    #path('<str:career>/<str:user_id>/homepage/', views.index, name='index'),
 ]

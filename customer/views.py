@@ -9,7 +9,7 @@ from customer.models import order
 from courier.models import company
 from .forms import IssueForm, OrderForm
 def homepage(request,user_id):
-    user = User.objects.get(user_id=user_id)
+    user = User.objects.get(user_id=int(user_id))
     return render(request,'homepage.html',{'user': user})
 
 
@@ -17,7 +17,7 @@ def homepage(request,user_id):
 
 def pickuplist (request, user_id):
 
-    user = User.objects.get(user_id = user_id)
+    user = User.objects.get(user_id = int(user_id))
     PickUpList = order.objects.filter(r_phone= user.phone).filter(status='wait')
 
 
@@ -26,8 +26,7 @@ def pickuplist (request, user_id):
 
 
 def pickup( request, user_id,order_id=None):
-
-    user = User.objects.get(user_id=user_id)
+    user = User.objects.get(user_id=int(user_id))
     package = order.objects.get(order_id=order_id)
     package.status = 'Picked Up'
     package.save()
@@ -52,9 +51,7 @@ def issuereport( request, order_id=None, user_id = None):
 
         issueform = IssueForm(initial={'order_id':order_id,'title':'','content':'','user_id':user_id})
 
-
-
-    user = User.objects.get(user_id=user_id)
+    user = User.objects.get(user_id=int(user_id))
 
     return render(request, 'IssueReport.html',{'user': user,'order_id':order_id,'issueform':issueform})
 
@@ -71,7 +68,7 @@ def notice( request, order_id=None, user_id = None):
 # create new  order
 
 def send( request, user_id = None):
-    user = User.objects.get(user_id=user_id)
+    user = User.objects.get(user_id=int(user_id))
     if request.method == "POST":
         orderform = OrderForm(request.POST)
         if orderform.is_valid():  # 所有验证都通过
@@ -100,7 +97,7 @@ def send( request, user_id = None):
             weight = orderform.cleaned_data.get("weight")
             company_id = orderform.cleaned_data.get("company_id")
             price = str(int(ordercompany.price) * int(weight))
-            status = 'wait'
+            status = 'wait pick up'
 
 
 
@@ -119,7 +116,7 @@ def send( request, user_id = None):
 
         orderform = OrderForm
 
-    user = User.objects.get(user_id=user_id)
+    user = User.objects.get(user_id=int(user_id))
 
     return render(request, 'OrderPage.html', {'user': user, 'orderform': orderform})
 
