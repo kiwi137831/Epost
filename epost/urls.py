@@ -22,11 +22,12 @@ from account import views
 
 urlpatterns = [
     url(r'^customer/', include('customer.urls')),
-    url(r'^account/',include('account.urls')),
+    url(r'^account/', include('account.urls')),
     url(r'^admin/', admin.site.urls),
-    url(r'^index/', views.index),
     url(r'^login/', views.login),
     url(r'^register/', views.register),
     url(r'^logout/', views.logout),
+    url(r'^homepage/', views.homepage),
+    #path('<str:career>/homepage/', views.index, name='index'),
 
 ]

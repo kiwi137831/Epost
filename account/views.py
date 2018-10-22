@@ -1,13 +1,12 @@
-
 from django.shortcuts import render
 from django.shortcuts import redirect
 from . import models
 from . import forms
 
 
-def index(request):
+def homepage(request):
     pass
-    return render(request, 'login/index.html')
+    return render(request, 'login/homepage.html')
 
 
 def login(request):
@@ -26,9 +25,9 @@ def login(request):
                 message = 'User does not exist!'
                 return render(request, 'login/login.html', locals())
 
-            if user.password == password:
+            if user.password == hash_code(password):
                 request.session['is_login'] = True
-                request.session['user_id'] = user.user_id
+                request.session['user_id'] = user.id
                 request.session['user_name'] = user.name
                 return redirect('/index/')
             else:
@@ -43,7 +42,7 @@ def login(request):
 
 def register(request):
     if request.session.get('is_login', None):
-        return redirect('/index/')
+        return redirect('/homepage/')
 
     if request.method == "POST":
         register_form = forms.RegisterForm(request.POST)
@@ -54,10 +53,6 @@ def register(request):
             password2 = register_form.cleaned_data['password2']
             email = register_form.cleaned_data['email']
             sex = register_form.cleaned_data['sex']
-            phone = register_form.cleaned_data['phone']
-            address = register_form.cleaned_data['address']
-            career = register_form.cleaned_data['career']
-            age = register_form.cleaned_data['age']
             if password1 != password2:
                 message = 'The second time you enter your password is different！'
                 return render(request, 'login/register.html', locals())
@@ -66,31 +61,16 @@ def register(request):
                 if same_name_user:
                     message = 'The username has already been registered.Please try again！'
                     return render(request, 'login/register.html', locals())
-
-                new_user = models.user.objects.create()
-                new_user.name = username
-                new_user.password = password1
-                new_user.email = email
-                new_user.sex = sex
-                new_user.phone = phone
-                new_user.address = address
-                new_user.age = age
-                new_user.career = career
-                new_user.save()
-                return redirect('/login/')
+                same_email_user = models.user.objects.filter(email=email)
+                if same_email_user:
+                    message = 'The email address has already been registered. Please use another email address！'
+                    return render(request, 'login/register.html', locals())
     register_form = forms.RegisterForm()
     return render(request, 'login/register.html', locals())
 
 
 def logout(request):
     if not request.session.get('is_login', None):
-        return redirect('/index/')
+        return redirect('/homepage/')
     request.session.flush()
-    del request.session['is_login']
-    del request.session['user_id']
-    del request.session['user_name']
-    return redirect('/index/')
-
-
-
-
+    return redirect('/homepage/')

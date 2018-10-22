@@ -13,7 +13,6 @@
                     <div class="alert alert-warning">{{ message }}</div>
                 {% endif %}
 
-
                 {% csrf_token %}
                 <h2 class="text-center">welcome to login</h2>
 
@@ -68,11 +67,12 @@
                 success: function (displayList) {
                     // 处理认证后的数据
                     if (displayList.canLogin === true) {
-                        $('#DisplayNo1').text("验证成功: " + displayList.AuthName).removeClass("label-danger").addClass("" +
-                            "label-success");
+                        $('#DisplayNo1').text("验证成功: " +
+                            displayList.AuthName).removeClass("label-danger").addClass(""
+                            + "label-success");
 
                         IdentifyNo1 = true;
-                        AuthNameNo1 = displayList.AuthName;
+                        AuthNameNo1 = displayList.username;
 
                         if (IdentifyNo2 === true) {
                             clearTimeout(timeout);
@@ -89,7 +89,8 @@
                         LoginSys(IdentifyNo1, AuthNameNo1, IdentifyNo2, AuthNameNo2);
                     }
                     else {
-                        $('#DisplayNo1').text("验证失败: " + displayList.AuthName).removeClass("label-success").addClass("label-danger");
+                        $('#DisplayNo1').text("验证失败: " +
+                            displayList.username).removeClass("label-success").addClass("label-danger");
 
                         IdentifyNo1 = false;
                         AuthNameNo1 = '';

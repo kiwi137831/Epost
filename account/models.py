@@ -43,8 +43,15 @@ class user(models.Model):
         return self.name
 
     class Meta:
-
         verbose_name = 'user'
         verbose_name_plural = 'user'
 
-
+#class UserProfile(models.Model):
+    #Puser = models.OneToOneField(user,unique=True,verbose_name=('user'))
+    #Pphone = models.CharField(max_length=20)
+    #Pname = models.CharField(max_length=10)
+    #Paddress = models.CharField(max_length=50)
+    #Page = models.CharField(max_length=5)
+    #gender = (('male', 'Male'),
+              #('female', 'Female'))
+    #Psex = models.CharField(choices=gender, max_length=32, default='man', verbose_name='gender'
