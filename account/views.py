@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.shortcuts import redirect
 from . import models
 from . import forms
+from django.db.models import Max
 
 def index(request):
     pass
@@ -19,12 +20,12 @@ def login(request):
         message = 'you should fill in all content'
         if login_form.is_valid():
             account = login_form.cleaned_data.get('account')
-            name = login_form.cleaned_data.get('name')
+            #name = login_form.cleaned_data.get('name')
             password = login_form.cleaned_data.get('password')
             user_id = login_form.cleaned_data.get('user_id')
             # ....
             try:
-                user = models.user.objects.get(name=name)
+                user = models.user.objects.get(account=account)
             except:
                 message = 'User does not exist!'
                 return render(request, 'login/login.html', locals())
@@ -74,7 +75,10 @@ def register(request):
                     message = 'The account has already been registered.Please try again！'
                     return render(request, 'login/register.html', locals())
 
-                models.user.objects.create(account=account, name=name,
+                userid = models.user.objects.all().aggregate(Max('user_id'))
+                userid= str(int(userid['user_id__max'])+1)
+
+                models.user.objects.create(user_id=userid,account=account, name=name,
                                            password=password1, email=email,
                                            phone=phone, gender=gender,
                                            address=address,

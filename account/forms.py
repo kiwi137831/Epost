@@ -13,7 +13,7 @@ class RegisterForm(forms.Form):
     email = forms.EmailField(label='email', widget=forms.EmailInput(attrs={'class': 'form-control'}))
     gender = forms.ChoiceField(choices=[('male', 'Male'),
         ('female', 'Female')])
-    age = forms.EmailField(label='age', widget=forms.TextInput(attrs={'class': 'form-control'}))
+    age = forms.CharField(label='age', widget=forms.TextInput(attrs={'class': 'form-control'}))
     address = forms.CharField(label='address', widget=forms.TextInput(attrs={'class': 'form-control'}))
     phone = forms.CharField(label='phone', widget=forms.TextInput(attrs={'class': 'form-control'}))
     type = forms.ChoiceField(choices=[('customer', 'Customer'),

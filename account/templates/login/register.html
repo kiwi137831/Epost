@@ -8,8 +8,9 @@
         <div class="col-md-offset-4 col-md-4">
             <form class="form-register" action="/register/" method="post">
                 {% if message %}
-                    <div class="alert alert-warning">{{ message }}</div>
+                <div class="alert alert-warning">{{ message }}</div>
                 {% endif %}
+
                 {% csrf_token %}
 
                 <h2 class="text-center">welcome to register</h2>
