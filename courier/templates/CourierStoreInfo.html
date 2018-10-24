@@ -20,9 +20,10 @@
     <p class="info">Sender address :{{storeinfo.s_address}}</p>
     <p class="info">Receiver address :{{storeinfo.r_address}}</p>
 
-        <a href="{% url 'courier:confirmpage' storeinfo.order_id %}">Confirm</a>
+        <a href="{% url 'courier:confirmpage'  courier_id=courier.courier_id order_id=order.order_id %}">Confirm</a>
+        <a style=" position: absolute; left: 46%;" href="{% url 'courier:issue' courier_id=courier.courier_id order_id=order.order_id  %}">Report Issue</a>
 
-     <input type="button" style="float :right" value="Back" class="btn btn-outline-info" onclick="{location.href='http://127.0.0.1:8000/courier/CourierStoreParcels'}" >
+     <input type="button" style="float :right" value="Back" class="btn btn-outline-info" onclick="{location.href='http://127.0.0.1:8000/courier/{{courier.courier_id}}/CourierStoreParcels/'}" >
     <button style="float :right" class="btn btn-outline-info">Log out</button>
 
 

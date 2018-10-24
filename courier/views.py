@@ -1,51 +1,91 @@
 
-from django.shortcuts import render, render_to_response, get_object_or_404
+from django.shortcuts import render, render_to_response, get_object_or_404,redirect
 from account.models import *
-from courier.models import order
+from customer.models import order
 from django.forms import fields
 from django import forms
 from django.views.decorators.csrf import csrf_exempt,csrf_protect
+from account.models import courier as Courier
+from account.models import notice as noticeboard
+from courier.models import issue as Issue
 # Create your views here.
+
+
 from django.http import HttpResponse
 
 
-def homepage(request):
-    return render_to_response('CourierHomepage.html')
+def homepage(request, courier_id):
+    courier = Courier.objects.get(courier_id=courier_id)
 
-def pickuplist (request):
+    return render(request,'CourierHomepage.html',{'courier':courier})
 
-    PickUpList = order.objects.filter(r_phone='0404').filter(status='wait')
-    return render(request, 'CourierPickuplists.html', {'pickuplist': PickUpList})
+def cpickuplist (request,courier_id):
+    courier = Courier.objects.get(courier_id=courier_id)
+    PickUpList = order.objects.filter(company_id=courier.company_id).filter(status='wait pick up')
 
-def pickup( request, order_id=None):
+    return render(request, 'CourierPickuplists.html', {'pickuplist': PickUpList,'courier':courier})
 
-    package = order.objects.get(order_id=order_id)
+def cpickup( request, courier_id=None,order_id=None):
+    courier = Courier.objects.get(courier_id=courier_id)
+
+    package = order.objects.get(order_id =order_id)
+
+
     package.status = 'Picked Up'
     package.save()
 
-    return render(request, 'SuccessfulPage.html', {'package': package})
+    return render(request, 'SuccessfulPagec.html', {'package': package})
 
-def issuereport( request, order_id=None):
+def issue( request, courier_id=None,order_id=None):
 
-    issue = order.objects.get(order_id=order_id)
-    issue.status = "issue"
-    issue.save()
+    courier = Courier.objects.get(courier_id=courier_id)
 
-    return render(request, 'IssueReport.html',{'issue': issue})
+    return render(request, 'IssueReport.html', {'courier': courier,'order':order})
+@csrf_exempt
+def issuereport( request, order_id=None, courier_id = None):
+        courier = Courier.objects.get(courier_id=courier_id)
 
-def storepage( request):
-    return render_to_response('CourierStoreParcels.html')
+        if request.POST:
+            issue_title= request.POST.get("issue_title")
+            issue_content= request.POST.get("issue_content")
+            issuepackage = Issue(order_id=order_id,title=issue_title,content= issue_content)
+
+            issuepackage.save()
+
+            return redirect('http://127.0.0.1:8000/courier/1/CourierHomepage/')
+
+def storepage( request, courier_id):
+
+
+
+    courier = Courier.objects.get(courier_id=courier_id)
+
+    return render(request, 'CourierStoreParcels.html', {'courier': courier,})
+
 
 @csrf_exempt
-def storeinfo (request):
+def storeinfo (request,courier_id = None):
+    courier = Courier.objects.get(courier_id=courier_id)
+
     if request.POST:
         parcels_trackid = request.POST.get("parcels_trackid")
-        storeinfo = order.objects.get(track_id=parcels_trackid)
-        return render(request, 'CourierStoreInfo.html', {'storeinfo': storeinfo})
+        orderc= order.objects.get(track_id =parcels_trackid)
 
-def confirmparcel( request, order_id=None):
+        storeinfo = order.objects.get(track_id=parcels_trackid)
+
+        return render(request, 'CourierStoreInfo.html', {'storeinfo': storeinfo,'courier':courier,'order':orderc})
+
+def confirmparcel( request, order_id=None,courier_id=None):
+
 
     confirmation = order.objects.get(order_id=order_id)
     confirmation.status = 'wait'
     confirmation.save()
-    return render(request, 'ConfirmPage.html', {'confirmation': confirmation})
+    return render(request, 'ConfirmPage.html', {'confirmation': confirmation,'courier_id':courier_id,'order_id':order_id})
+
+def couriernotice( request, order_id=None,courier_id = None):
+
+    notice = noticeboard.objects.all()
+    courier = Courier.objects.get(courier_id=courier_id)
+
+    return render(request, 'CourierNoticeBoard.html',{'noticeboard': notice,'courier':courier})

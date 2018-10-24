@@ -17,9 +17,9 @@
   <p class="lead">This is the homepage for couriers.</p>
   <hr class="my-4">
     <div id="demo" style="text-align:center;" >
-     <input type="button" style="width:200px;height:40px; margin:5px" value="Pick Up" class="btn btn-outline-primary" onclick="{location.href='http://127.0.0.1:8000/courier/CourierPickuplists'}" >
-     <input type="button" style="width:200px;height:40px;margin:5px" value="Store Parcels"class="btn btn-outline-primary" onclick="{location.href='http://127.0.0.1:8000/courier/CourierStoreParcels'}">
-     <button type="button" style="width:200px;height:40px;margin:5px" class="btn btn-outline-primary">Notice Board</button>
+     <input type="button" style="width:200px;height:40px; margin:5px" value="Pick Up" class="btn btn-outline-primary" onclick="{location.href='http://127.0.0.1:8000/courier/{{courier.courier_id}}/CourierPickuplists'}" >
+     <input type="button" style="width:200px;height:40px;margin:5px" value="Store Parcels"class="btn btn-outline-primary" onclick="{location.href='http://127.0.0.1:8000/courier/{{courier.courier_id}}/CourierStoreParcels'}">
+      <button type="button" style="width:200px;height:40px;margin:5px" class="btn btn-outline-primary" onclick="{location.href='http://127.0.0.1:8000/courier/{{courier.courier_id}}/noticeboard/'}" >Notice Board</button>
      <button type="button" style="width:200px;height:40px;margin:5px" class="btn btn-outline-primary">Feedback</button>
     </div>
       <br>

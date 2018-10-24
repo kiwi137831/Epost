@@ -1,30 +1,17 @@
 from django.db import models
-from account.models import user
 import django.utils.timezone as timezone
-# Create your models here.
-class order(models.Model):
-    order_id = models.CharField(max_length = 10, primary_key= True, default= '0')
-    date = models.DateTimeField(default = timezone.now)
-    track_id = models.CharField(max_length=20)
-    r_address = models.CharField(max_length=50)
-    s_address = models.CharField(max_length=50)
-    price = models.CharField(max_length=20)
-    r_phone = models.CharField(max_length=20)
-    s_phone = models.CharField(max_length=20)
-    receiver = models.CharField(max_length=20)
-   # sender = models.ForeignKey(user, to_field='user_id', on_delete=models.CASCADE)
-    sender = models.CharField(max_length=20)
-    weight = models.CharField(max_length=20)
-    s_postcode = models.CharField(max_length=20)
-    r_postcode = models.CharField(max_length=20)
-    status = models.CharField(max_length=20)
-    box_id = models.CharField(max_length=20)
-    company_id = models.CharField(max_length=20)
-    delivery_staff = models.CharField(max_length=20)
+
 
 class company(models.Model):
-    company_id = models.CharField(max_length=10, primary_key=True, default='0')
-    name = models.CharField(max_length=20)
+    company_id = models.CharField(max_length=10, primary_key=True, default='1')
+    name = models.CharField(max_length=20, default='0')
     phone = models.CharField(max_length=20)
     price = models.CharField(max_length=20)
-    address = models.CharField(max_length=20)
+    address =models.CharField(max_length=200,default='')
+class issue (models.Model):
+    issue_id = models.CharField(max_length = 10, primary_key= True, default= '1')
+    order_id = models.CharField(max_length=20, default= '0')
+    title = models.CharField(max_length=20)
+    content = models.CharField(max_length=200)
+    date = models.DateTimeField(default = timezone.now)
+    status = models.CharField(max_length=20, default= 'wait')

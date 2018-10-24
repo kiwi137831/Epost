@@ -13,7 +13,7 @@
   <body>
 
 <div class="jumbotron" style="width:600px;height: 450px; margin: auto;">
-    <form class="form " action="storeinfo" method="post">
+    <form class="form " action="storeinfo/{{order_id}}" method="post">
         {% csrf_token %}
         <p class="lead">Parcels Detail Infomation</p>
         <label class="">Track ID:</label> <label style="color: red;">*</label>
@@ -21,7 +21,7 @@
         <br>
         <br>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Confirm</button>
-        <input type="button" style="float :right" value="Back" class="btn btn-outline-info" onclick="{location.href='http://127.0.0.1:8000/courier/CourierHomepage'}" >
+        <input type="button" style="float :right" value="Back" class="btn btn-outline-info" onclick="{location.href='http://127.0.0.1:8000/courier/{{courier.courier_id}}/CourierHomepage/'}" >
         <button style="float :right" class="btn btn-outline-info">Log out</button>
 
     </form>

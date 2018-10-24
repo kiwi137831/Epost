@@ -12,13 +12,25 @@
   </head>
   <body>
 
-<div class="jumbotron" style="width:600px;height: 450px; margin: auto;">
+<!--<div class="jumbotron" style="width:600px;height: 450px; margin: auto;">-->
 
-  <p class="lead">Report Issue</p>
-    <hr class="my-4">
-    <p class="info">The issue of {{issue.receiver}}'s parcel in box {{issue.box_id}} has been reported</p>
+  <!--<p class="lead">Report Issue</p>-->
+    <!--<hr class="my-4">-->
+    <!--<p class="info">The issue of {{issue.receiver}}'s parcel in box {{issue.box_id}} has been reported</p>-->
+    <div class="jumbotron" style="width:600px;height: 450px; margin: auto;">
 
 
+   <form class="form " action="issuereport/{{order_id}}" method="post">
+        {% csrf_token %}
+        <p class="lead">Report Issue</p>
+        <label class="">Title:</label> <label style="color: red;">*</label>
+            <input type="title" name="issue_title" class="form-control" placeholder="Title" required>
+        <label class="">Content:</label> <label style="color: red;">*</label>
+            <input type="content" name="issue_content" class="form-control" placeholder="What is the issue?" required>
+        <br>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Confirm</button>
+</form>
+
       <br>
       <br>
       <br>
@@ -26,7 +38,7 @@
       <br>
       <br>
 
-     <input type="button" style="float :right" value="Back" class="btn btn-outline-info" onclick="{location.href='http://127.0.0.1:8000/courier/CourierHomepage'}" >
+     <input type="button" style="float :right" value="Back" class="btn btn-outline-info" onclick="{location.href='http://127.0.0.1:8000/courier/{{courier.courier_id}}/CourierHomepage/'}" >
     <button style="float :right" class="btn btn-outline-info">Log out</button>
 
 

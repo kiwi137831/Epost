@@ -23,7 +23,7 @@
     <p class="info">Receiver address :{{package.r_address}}</p>
       <br>
       <br>
-    <a style=" position: absolute; left: 46%;" href="{% url 'courier:issuereport' package.order_id %}">Report Issue</a>
+    <a style=" position: absolute; left: 46%;" href="{% url 'courier:issuereport' package.order_id  user.user_id%}">Report Issue</a>
 
 
      <input type="button" style="float :right" value="Back" class="btn btn-outline-info" onclick="{location.href='http://127.0.0.1:8000/courier/CourierPickuplists'}" >
