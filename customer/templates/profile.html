@@ -10,7 +10,7 @@
 
      <hr class="my-4">
      <form action="/customer/profile/" method="post">{% csrf_token %}
-         {% for user in users %}
+         <input tpye="hidden" name = "user_id" value="{{user.user_id}}" readonly>
          <text>account</text>
          <input tpye="text" name = "account" value="{{user.account}}" readonly>
          <text>password</text>
@@ -28,7 +28,6 @@
          <input type="text" name ="gender" value="{{user.gender}}"/>
          <text>age</text>
          <input type="text" name ="age"value="{{user.age}}"/>
-             {% endfor %}
          <input name="submit" type="submit" value ="submit"/>
     </form>
 

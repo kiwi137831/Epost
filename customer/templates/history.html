@@ -13,13 +13,17 @@
         div{
             width:2600px;
         }
+        #hide{
+        display: none;
+    }
     </style>
 </head>
 <body>
 <div>
     <div>
-        <form action="/customer/profile/" method="post">{% csrf_token %}
+        <form action="/customer/history/" method="post">{% csrf_token %}
          {% for order in orders %}
+                     <input tpye="hidden" id="hide" name = "order_id" value="{{order.order_id}}" >
          <text>date</text>
          <input tpye="text" name = "date" value="{{order.date}}" readonly>
          <text>weight</text>
@@ -29,7 +33,7 @@
         <text>sender</text>
          <input tpye="text" name = "sender" value="{{order.sender}}" readonly>
         <text>sender phone</text>
-         <input tpye="text" name = "sender" value="{{order.s_phone}}" readonly>
+         <input tpye="text" name = "s_phone" value="{{order.s_phone}}" readonly>
         <text>send address</text>
          <input tpye="text" name = "s_address" value="{{order.s_address}}" readonly>
         <text>send postcode</text>
@@ -44,9 +48,13 @@
          <input tpye="text" name = "r_postcode" value="{{order.r_postcode}}" readonly>
         <!--这里应该有个判定，判定出是收件员还是发货员-->
         <text>service staff</text>
-        <input tpye="text" name = "staff" value="{{order.delivery_staff}}" readonly>
-            <br>
+         <input tpye="text" name = "staff" value="{{order.delivery_staff}}" readonly>
+        <input  type="submit" name="{{order.order_id}}" value ="Delete"/>
+
+        <br>
              {% endfor %}
+         <input type="submit" name="delete_all"  value ="Delete All"/>
+
     </form>
          <!--<input name="submit" type="submit" value ="submit"/>-->
 
